@@ -113,7 +113,7 @@ articleView.create = () => {
 };
 
 // COMMENT: When is this function called? What event ultimately triggers its execution?
-// PUT YOUR RESPONSE HERE
+// It is the callback to the initNewArticle event handler that executes whenever the user clicks the submit button after typing a new form.
 articleView.submit = event => {
   event.preventDefault();
   let article = new Article({
@@ -126,7 +126,7 @@ articleView.submit = event => {
   });
 
   // COMMENT: Where is this function defined? When is this function called? What event ultimately triggers its execution?
-  // PUT YOUR RESPONSE HERE
+  // The method is defined in article.js as part of the Article constructor via the prototype, the submit button event will trigger this method.
   article.insertRecord();
 }
 

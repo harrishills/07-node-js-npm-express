@@ -50,7 +50,7 @@ Article.prototype.insertRecord = function(callback) {
       console.log(data);
 
       // COMMENT: What is the purpose of this line? Is the callback invoked when this method is called? Why or why not?
-      // PUT YOUR RESPONSE HERE
+      // When I broke this code the preview for the new article didn't populate on the new.html page, so based off of that I believe the purpose of this line is to access the article in the backend and if it's there display all the inputs.  To me the callback IS invoked once an article is stored... just a guess I have no idea this one was confusing.
       if (callback) callback();
     });
 };
