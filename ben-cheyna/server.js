@@ -4,7 +4,6 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
-let newPage = 'new.html';
 
 
 // REVIEW: POST route needs to parse the body passed in with the request.
@@ -12,7 +11,6 @@ let newPage = 'new.html';
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-newPage.rename('/public/new.html' , '/public/new');
 
 
 app.post('/articles', (request, response) => {
@@ -21,7 +19,13 @@ app.post('/articles', (request, response) => {
   response.status(201).json(request.body);
 });
 
+app.get('/new',(request, response) => {
+  response.sendFile('new.html', {root: './public'});
+});
 
+app.use((request, response) => {
+  response.status(404).send('404 error! File Not Found!');
+});
 
 app.listen(3000, () => console.log('Listening on port 3000...'));
 
